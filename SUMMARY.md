@@ -15,7 +15,6 @@
     * [printerGUI程序](sw_guide/printerGUI/printerGUI.md)
     * [cups打印服务](sw_guide/cups/cups.md)
     * [热敏打印头驱动](sw_guide/thermal_drv/thermal_drv.md)
-    * [o](sw_guide/o/o.md)
     * [ota升级](sw_guide/ota/ota.md)
     * [debug工具](sw_guide/debug/debug.md)
 * [usb烧录工具](usbcloner/usbcloner.md)
