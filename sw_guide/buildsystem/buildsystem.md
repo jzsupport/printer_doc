@@ -7,7 +7,7 @@
 * 第一次编译需安装必要软件包： $ ./build/core/tools/auto_env_setup.sh 
 * 设置环境变量： $ source build/envsetup.sh
 * 选择配置： $ lunch
-* 开始编译： $ make   （或多线程编译 $make -j）
+* 开始编译： $ make   （或多线程编译 $make -j16）
 
 运行log如下：
 ``` shell
