@@ -8,6 +8,7 @@
     * [u-boot](sw_guide/u-boot/u-boot.md)
     * [linux-kernel](sw_guide/linux-kernel/linux-kernel.md)
     * [buildroot](sw_guide/buildroot/buildroot.md)
+    * [readonlyfs](sw_guide/buildroot/readonlyfs.md)
     * [systemserver系统服务](sw_guide/systemserver/systemserver.md)
     * [networkmanager配网服务](sw_guide/networkmanager/networkmanager.md)
     * [qrcode二维码识别](sw_guide/qrcode/qrcode.md)
