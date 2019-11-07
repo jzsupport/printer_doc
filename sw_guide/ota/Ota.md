@@ -1,4 +1,4 @@
-# ota升级
+# Ota升级
 
 本方案提供了一整套ota升级方法，具体实现在packages/kunpeng/updater目录。其中libupdater目录实现了一种升级检测的本地策略，和一些升级相关的基础函数。recovery目录是升级程序。ota_package_maker目录用于制作升级包。default_ota_res目录存放升级需要的配置文件、秘钥、提示音文件等。docker_server目录用于搭建服务器。
 
@@ -161,4 +161,3 @@ make ota_package
 ```
 
 这样就会成功制作升级包，制作出的升级包在out/product/j618/obj/ota/目录下，将其拷贝到服务器即可。
-
