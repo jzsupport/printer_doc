@@ -18,18 +18,16 @@ CUPS doc(https://www.cups.org/documentation.html)
 
 ## CUPS安装文件
 CUPS安装后主要有3个目录
-
->
+```
  /etc/cups/
  /usr/lib/cups/
  /usr/share/cups/
 
 其中：
->
 filter:  /usr/lib/cups/filter/
 backend: /usr/lib/cups/backend/
 drv: /usr/share/cups/drv/
-
+```
 细节请查看： [CUPS文件列表](cups_files.md)
 
 
@@ -107,10 +105,11 @@ direct usb://HP/DeskJet%201110%20series?serial=CN88O28409065W "HP DeskJet 1110 s
 ## CUPS添加自定义打印机
 常见打印机接口为USB/Serial/Parallel。本例添加自定义SPI接口打印机。
 
->   # lpadmin -p spi -E -v spi:///deskjet -m drv:///spi.drv/spi.ppd
+```
+# lpadmin -p spi -E -v spi:///deskjet -m drv:///spi.drv/spi.ppd
 执行后生成打印机配置：
 /etc/cups/ppd/spi.ppd 
-
+```
  
 * 自定义backend：/usr/lib/cups/backend/spi
 * 增加自定义驱动：/usr/share/cups/drv/spi.drv
