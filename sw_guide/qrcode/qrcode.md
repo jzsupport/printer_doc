@@ -1,14 +1,14 @@
 # qrcode二维码识别
 
 ##qrcode 简介
-		近年来，随着移动互联网快速的发展，电子商务，物联网等多个热门领域的升温，二维码可以说是无孔不入的渗透进了我们的生活，为我们的生活提供了巨大的便利。那么什么是二维码？二维码有什么优势？
-		我们所说的QRCode(Quick Response Code)码，是由Denso公司于1994年9月研制的一种矩阵二维码符号，它具有一维条码及其它二维条码所具有的信息容量大、可靠性高、可表示汉字及图象多种文字信息、保密防伪性强等优点。
-		君正qrcode 通过局部二制化的方式实现了一套完整的二维码编码解码流程，下面会分段介绍君正qrcode 代码结构，主要接口，编译及使用方式。
-##代码路径及结构
-* 代码路径：
 
-		Printer/packages/kunpeng/qrcode
+&emsp;   &ensp;近年来，随着移动互联网快速的发展，电子商务，物联网等多个热门领域的升温，二维码可以说是无孔不入的渗透进了我们的生活，为我们的生活提供了巨大的便利。那么什么是二维码？二维码有什么优势？  
+&emsp;   &ensp;我们所说的QRCode(Quick Response Code)码，是由Denso公司于1994年9月研制的一种矩阵二维码符号，它具有一维条码及其它二维条码所具有的信息容量大、可靠性高、可表示汉字及图象多种文字信息、保密防伪性强等优点。  
+&emsp;   &ensp;君正qrcode 通过局部二制化的方式实现了一套完整的二维码编码解码流程，下面会分段介绍君正qrcode 代码结构，主要接口，编译及使用方式。
 
+## 代码路径及结构
+
+* 代码路径： Printer/packages/kunpeng/qrcode
 * 代码结构：
 
 ![](images/tree.png)
@@ -331,10 +331,11 @@ a.文件：Printer/packages/kunpeng/qrcode/writer/src/generateBarcode.cpp
 
 
 ##kunpeng qrcode 集成方式
-	kunpeng 工程中已经将qrcode 集成在了qt的代码里，qtmain服务中调用了scanner-test 程序实现qrcode解码生成字符串功能，调用了writer 程序实现了将链接生成二维码的编码功能。
-	qtmain 服务：Printer/packages/kunpeng/testqt/qtmain
+&emsp;   &ensp;kunpeng 工程中已经将qrcode 集成在了qt的代码里，qtmain服务中调用了scanner-test 程序实现qrcode解码生成字符串功能，调用了writer 程序实现了将链接生成二维码的编码功能。
+
+qtmain 服务：Printer/packages/kunpeng/testqt/qtmain
 	
-* 二维码解析出字符串
+### 二维码解析出字符串
 	
 文件：Printer/packages/kunpeng/testqt/qtmain/mainwindow.cpp
 
@@ -366,7 +367,7 @@ a.文件：Printer/packages/kunpeng/qrcode/writer/src/generateBarcode.cpp
 
 ```
 
-* 字符串生成二维码
+### 字符串生成二维码
 
 文件：Printer/packages/kunpeng/testqt/qtmain/mainwindow.cpp
 
@@ -391,13 +392,16 @@ a.文件：Printer/packages/kunpeng/qrcode/writer/src/generateBarcode.cpp
 ```
 
 ##使用方式
-* 二维码解析
+### 二维码解析
  
- 	开发板上电启动后，点击屏幕上的**主扫**按钮进入主扫界面，讲二维码放在camera 可取数据视野范围内，扫描成功后会在主扫按钮下方的文本框解析出二维码链接。
+开发板上电启动后，点击屏幕上的**主扫**按钮进入主扫界面，讲二维码放在camera 可取数据视野范围内，扫描成功后会在主扫按钮下方的文本框解析出二维码链接。
+
 <img src="images/scan.jpeg" width="50%" height="50%">
 
-* 字符串生成二维码
-	点击屏幕上的**被扫**按钮，点击**产生**按钮，此时屏幕上生成一个二维码并将此二维码保存为"/tmp/a.bmp"，手机端扫描此二维码会直接跳转进入到君正官网。
+### 字符串生成二维码
+
+点击屏幕上的**被扫**按钮，点击**产生**按钮，此时屏幕上生成一个二维码并将此二维码保存为"/tmp/a.bmp"，手机端扫描此二维码会直接跳转进入到君正官网。
+
 <img src="images/scanned.jpeg" width="50%" height="50%">
 
 
