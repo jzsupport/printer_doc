@@ -1,3 +1,5 @@
+<!-- toc -->
+
 # CUPS打印服务
 CUPS(Common UNIX Printing System)，CUPS管理本地打印机并提供IPP网络打印服务。
 
@@ -7,8 +9,7 @@ CUPS doc(https://www.cups.org/documentation.html)
 
 
 ## CUPS源码包
-基于buildroot集成的CUPS源码包，buildroot版本(_version: 2018.11.x_)
-
+基于buildroot集成的CUPS源码包，buildroot版本(_version: 2018.11.x_)  
 其中CUPS version:
 
  * cups-2.2.7/
@@ -54,7 +55,6 @@ CUPS常用命令
 添加网络打印机：
 lpadmin -p 143 -E -v dnssd://HP_1110%20%40%20sw1-Rev-1-0._ipp._tcp.local/cups?uuid=b192e55f-94fd-334a-667d-d47ed3c4e920
 
-
  打印文档：
 # lp -d 143 printers.conf
 request id is 143-2 (1 file(s))
@@ -72,14 +72,10 @@ network http
 network ipps
 network smb
 direct hpfax
-network dnssd://143%20%40%20printer._ipp._tcp.local/cups
 network dnssd://HP%20DeskJet%201110%20series%20%40%20ubuntu-18._ipp._tcp.local/cups
 network dnssd://HP_1110%20%40%20printer._ipp._tcp.local/cups
-network dnssd://halley2%20%40%20printer._ipp._tcp.local/cups
-network dnssd://ubuntu18%20%40%20printer._ipp._tcp.local/cups
 
-
-查看驱动文件：
+查看打印机驱动文件：
 # lpinfo -m
 drv:///sample.drv/dymo.ppd Dymo Label Printer
 everywhere IPP Everywhere
@@ -106,16 +102,17 @@ direct usb://HP/DeskJet%201110%20series?serial=CN88O28409065W "HP DeskJet 1110 s
 常见打印机接口为USB/Serial/Parallel。本例添加自定义SPI接口打印机。
 
 ```
+添加打印机命名为spi
 # lpadmin -p spi -E -v spi:///deskjet -m drv:///spi.drv/spi.ppd
 执行后生成打印机配置：
 /etc/cups/ppd/spi.ppd 
 ```
- 
+
 * 自定义backend：/usr/lib/cups/backend/spi
 * 增加自定义驱动：/usr/share/cups/drv/spi.drv
 
 ### 自定义backend: spi
-自定义spi backend源代码： _"packages/kunpeng/cups_backend_raster/backend/spi/"_
+自定义spi backend源代码： _"packages/kunpeng/cups_backend_raster/backend/spi/"_  
 backend示例： cups-filters-1.21.3/backend/serial.c
 
 >打印测试页：
@@ -170,3 +167,45 @@ PCFileName "spi.ppd"
 ### filters_backend
 ![](images/filters_backend.png)
 
+
+------
+## 网络添加自定义打印机
+&emsp;   &ensp; x1000网络打印机启动连接网络（有线LAN或无线WIFI）后，可被网络上其它设备发现。  
+以winXP为例，连接x1000网络打印机。
+
+* 设备端通过命令“ifconfig”确认x1000网络打印机的IP地址。
+默认启动WIFI AP模式地址为： 192.168.11.1
+
+```shell
+ # ifconfig 
+eth0      Link encap:Ethernet  HWaddr B6:47:13:75:25:CC  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+wlan0     Link encap:Ethernet  HWaddr D0:31:10:FF:56:58  
+          inet addr:192.168.11.1  Bcast:192.168.11.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:20 errors:0 dropped:6 overruns:0 frame:0
+          TX packets:65 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:2074 (2.0 KiB)  TX bytes:10138 (9.9 KiB)
+```
+
+* 电脑端网络浏览器输入打印机设备地址：http://192.168.11.1:631/printers/  
+如下图片为连接成功，并显示打印机名称spi。<br>
+![](images/add_printer_url.png)
+
+* 添加打印机向导，选择“网络打印机或连接到其它计算机的打印机”
+![](images/add_printer_01.png)
+[](images/add_printer_02.png)
+
+* 指定打印机，选择“连接到Internet、家庭或办公网路上的打印机”  
+并在地址输入：http://192.168.11.1:631/printers/spi
+* 下一步： 选择对应的厂商打印机驱动
+![](images/add_printer_03.png)
+
+* 点击“确定”，完成添加。<br/>
+![](images/add_printer_finish.png)
