@@ -30,6 +30,17 @@ $ cat ~/.gitconfig
 ```
 
 ------
+## Markdown format
+
+Markdown格式补充：
+```
+索引：文件头加入 <!-- toc --> ，当编译的时候回自动在这个位置增加索引
+分段： 空一行换的是自然段；
+换行： <br/>，或者2个空格"  "
+首行缩进： 使用html方法，输入全角或半角占位符&emsp;   &ensp;
+```
+
+------
 
 ## gitbook
 
@@ -52,6 +63,15 @@ $ export PATH=$NODE_PATH:$NODE_MODULES_PATH:$PATH
 ### gitbook commands
 生成电子书 (epub, mobi, pdf) 时需要ebook-convert。
 
+### start gitbook
+```
+$ cd your_book/
+$ gitbook serve
+按需安装插件
+$ gitbook install      (install plugins)
+```
+
+### 指定路径参数
 ```
 构建书籍：gitbook build
 默认：将生成的静态网站输出到 _book 目录
