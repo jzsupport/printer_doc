@@ -38,7 +38,65 @@ Markdown格式补充：
 分段： 空一行换的是自然段；
 换行： <br/>，或者2个空格"  "
 首行缩进： 使用html方法，输入全角或半角占位符&emsp;   &ensp;
+
+图片格式：
+<div align=center><img src="res/x1000_printer.jpg" width="50%" height="50%">
+
+<!-- 居中 宽度100 -->
+<div align=center>
+	<img src="https://www.baidu.com/img/bd_logo1.png" width="100"> 
+</div>
+
+<!-- 居中 宽度200 -->
+<div align=center>
+	<img src="https://www.baidu.com/img/bd_logo1.png" width="200"> 
+</div>
+
+<!-- 居中 宽度300 -->
+<div align=center>
+	<img src="https://www.baidu.com/img/bd_logo1.png" width="300"> 
+</div>
+
+<!-- 居左 宽度100 -->
+<div align=left>
+	<img src="https://www.baidu.com/img/bd_logo1.png" width="100"> 
+</div>
+
+<!-- 居右 宽度100 -->
+<div align=right>
+	<img src="https://www.baidu.com/img/bd_logo1.png" width="100"> 
+</div>
+————————————————
+版权声明：本文为CSDN博主「MrNoboday」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/MrNoboday/article/details/89203688
+
 ```
+
+<!-- 居中 宽度100 -->
+<div align=center>
+	<img src="https://www.baidu.com/img/bd_logo1.png" width="100"> 
+</div>
+
+<!-- 居中 宽度200 -->
+<div align=center>
+	<img src="https://www.baidu.com/img/bd_logo1.png" width="200"> 
+</div>
+
+<!-- 居中 宽度300 -->
+<div align=center>
+	<img src="https://www.baidu.com/img/bd_logo1.png" width="300"> 
+</div>
+
+<!-- 居左 宽度100 -->
+<div align=left>
+	<img src="https://www.baidu.com/img/bd_logo1.png" width="100"> 
+</div>
+
+<!-- 居右 宽度100 -->
+<div align=right>
+	<img src="https://www.baidu.com/img/bd_logo1.png" width="100"> 
+</div>
+
 
 ------
 

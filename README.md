@@ -43,5 +43,7 @@
 从目前打印市场来看，一般采用的方案大都是通用MCU，没有专门针对云打印市场进行优化和迭代，而且专用的SoC方案还十分鲜见。君正率先垂范，通过硬件整合、软件调试，拿出了软硬件一体化基本方案和扩展方案，成为了云打印市场的先行军。
 
 
-![](res/x1000_printer.jpg)
-![](res/pear_board.jpg)
+[](res/x1000_printer.jpg)
+<div align=center><img src="res/x1000_printer.jpg" width="50%" height="50%">
+[](res/pear_board.jpg)
+<div align=center><img src="res/pear_board.jpg" width="50%" height="50%">
