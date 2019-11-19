@@ -17,9 +17,66 @@ systemserver是一种管理进程的系统服务模块。主要功能如下：
 * cmdserver和cmdclient：进程间消息通讯的测试程序
 
 ## 相关属性
-systemservice程序会在内存中维护一个列表，记录进程需要的property，用于进程间消息传递和进程状态的显示。通过getprop命令可以看到系统中所有property的值和进程状态信息，如下图：
-
-![](images/getprop.png)
+systemservice程序会在内存中维护一个列表，记录进程需要的property，用于进程间消息传递和进程状态的显示。通过getprop命令可以看到系统中所有property的值和进程状态信息，如下：
+```
+# getprop
+[init.svc.adbd]: [running]
+[init.svc.bleservice]: [running]
+[init.svc.bsaservice]: [stopped]
+[init.svc.cmdserver]: [running]
+[init.svc.connectserver]: [running]
+[init.svc.dbusd]: [stopped]
+[init.svc.debuggerd]: [stopped]
+[init.svc.dnsservice]: [stopped]
+[init.svc.event_manager]: [running]
+[init.svc.klogd]: [running]
+[init.svc.logd]: [running]
+[init.svc.network]: [stopped]
+[init.svc.network_manager]: [running]
+[init.svc.networkconfig]: [stopped]
+[init.svc.printer]: [running]
+[init.svc.pserver]: [running]
+[init.svc.spiservice]: [stopped]
+[init.svc.urandom]: [stopped]
+[init.svc.userdata]: [stopped]
+[persist.settings.backlight]: [222]
+[persist.settings.baseurl]: [http://117.78.40.33:18985/bill_edge]
+[persist.settings.volume]: [32]
+[persist.update.isForce]: [10]
+[sys.backend.spi.clk]: [30000000]
+[sys.dev.chipID]: [0d21ca500530340c00000000af992990]
+[sys.dev.dns0]: [192.168.17.1]
+[sys.dev.dns1]: [192.168.17.1]
+[sys.dev.dns2]: []
+[sys.dev.gw.eth]: [192.168.17.1]
+[sys.dev.gw.wlan]: [192.168.17.1]
+[sys.dev.gw]: [192.168.17.1]
+[sys.dev.ipaddr.eth]: [192.168.17.115]
+[sys.dev.ipaddr.wlan]: [192.168.17.109]
+[sys.dev.ipaddr]: [192.168.17.115]
+[sys.dev.ipmask.eth]: [255.255.255.0]
+[sys.dev.ipmask.wlan]: [255.255.255.0]
+[sys.dev.ipmask]: [255.255.255.0]
+[sys.dev.mac.eth]: [2E:6C:CC:EC:49:8B]
+[sys.dev.mac.wlan]: [28:ED:E0:95:17:A9]
+[sys.dev.mqtt.timeout]: [30]
+[sys.dev.net]: [OK]
+[sys.dev.paytexno]: []
+[sys.dev.version]: [1]
+[sys.logd.config]: [-n -s 16]
+[sys.printer.baseurl]: [http://117.78.40.33:18985/bill_edge]
+[sys.printer.mqtturl]: [/pdf/get]
+[sys.printer.otadetecturl]: [/sys/checkUpdate]
+[sys.printer.register]: [OK]
+[sys.printer.registerurl]: [/printer/register]
+[sys.printer.topicprefix]: [P]
+[sys.printer.typePrinterSn]: [j918_mips_x1000]
+[sys.settings.getCommentUrl]: [/printer/getComment]
+[sys.settings.saveCommentUrl]: [/printer/saveComment]
+[sys.settings.savePrintMethodUrl]: [/printer/savePrintMethod]
+[sys.usb.config]: [adb]
+[sys.usb.state]: [adb]
+```
 可见，property根据需要分为以下几种：
 
 * 以init.开头的property：表示由systemservice维护的各个进程的当前状态
@@ -170,5 +227,9 @@ service cmdserver /usr/bin/cmdserver
     socket Demo stream 0666 root root
     console
 ```
-然后在适当时机start cmdserver，重启系统后，cmdserver就运行起来了，此时执行cmdclient aaaa命令（其中aaaa是发要发送给server的命令），cmdserver端就收到了aaaa命令。如下图：
-![](images/cmdserver_rec.png)
+然后在适当时机start cmdserver，重启系统后，cmdserver就运行起来了，此时执行cmdclient aaaa命令（其中aaaa是发要发送给server的命令），cmdserver端就收到了aaaa命令。cmdserver端输出如下：
+```
+DemoCmd Command:
+Demo
+aaaa
+```
