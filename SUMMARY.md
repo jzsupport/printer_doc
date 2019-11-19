@@ -12,7 +12,6 @@
     * [systemserver系统服务](sw_guide/systemserver/systemserver.md)
     * [networkmanager配网服务](sw_guide/networkmanager/networkmanager.md)
     * [qrcode二维码识别](sw_guide/qrcode/qrcode.md)
-    * [printerServer](sw_guide/printerServer/printerServer.md)
     * [printerGUI程序](sw_guide/printerGUI/printerGUI.md)
     * [cups打印服务](sw_guide/cups/cups.md)
     * [热敏打印头驱动](sw_guide/thermal_drv/thermal_drv.md)
